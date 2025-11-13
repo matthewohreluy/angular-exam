@@ -10,7 +10,7 @@ import { Input } from './input/input';
   templateUrl: './item-list.html',
   styleUrl: './item-list.scss',
 })
-export class ItemList implements OnInit {
+export class ItemList {
   items = signal<(ItemData & {isAddingItem?: boolean})[]>([]);
   isAddingFolder = signal<boolean>(false);
 
@@ -18,9 +18,7 @@ export class ItemList implements OnInit {
     return ItemType;
   }
 
-  ngOnInit() {
-    console.log(this.items());
-  }
+
 
   addFolder(){
     this.isAddingFolder.set(true);
@@ -58,7 +56,6 @@ export class ItemList implements OnInit {
 
   private addItem(items: ItemData[], newItem: ItemData, id: string): ItemData[] {
     return items.map(item=>{
-      console.log(item);
       if(item.type === ItemType.FOLDER && item.children){
         if(item.id == id) item.children = [...item.children, newItem];
         this.addItem(item.children, newItem,id);
