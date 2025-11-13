@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+// utility classes
+.main-container{
+  padding: 1rem;
+}
+
+.btn-container{
+  margin-bottom: 2rem;
+}
+
+.btn-primary{
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: .75rem;
+  font-weight: bold;
+}
+
+.bg-black{
+  background-color: #000;
+  color: #fff;
+}
+
+.bg-white{
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-small{
+  padding: .5rem .75rem;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: .75rem;
+  font-weight: bold;
+}
+
+.btn-round{
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-simple{
+  font-size: 1rem;
+  padding: .25rem;
+}
+
+.mr-1{
+  margin-right: .25rem;
+}
+
+.ml-6{
+  margin-left: 1.5rem;
+}

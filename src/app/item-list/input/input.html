@@ -1,0 +1,13 @@
+@if(currentType() !== null) {
+  <div class="add-item-container">
+    <i class="fa-solid mr-1" [class]="'fa-'+ itemService.getIconName(currentType()!)"></i>
+    <input #folderInput type="text" [(ngModel)]="itemName"/>
+    <button class="btn-small bg-black" (click)="add()"><i class="fa-solid fa-check"></i></button>
+    <button class="btn-small bg-white" (click)="close()"><i class="fa-solid fa-x"></i></button>
+  </div>
+}@else {
+  <div class="add-item-btn-container">
+    <button class="btn-simple" (click)="setCurrentType(ItemType.FILE)">File</button>
+    <button class="btn-simple" (click)="setCurrentType(ItemType.FOLDER)">Folder</button>
+  </div>
+}

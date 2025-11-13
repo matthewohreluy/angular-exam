@@ -1,0 +1,47 @@
+<div class="btn-container">
+  <button class="btn-primary bg-black" (click)="addFolder()">Add folder to root</button>
+</div>
+
+<div class="items-container">
+  <ul class="item-container root-list">
+    <ng-container *ngTemplateOutlet="itemsTemplateRef; context: { $implicit: items() }"></ng-container>
+  </ul>
+</div>
+
+@if(isAddingFolder()) {
+   <ng-container
+          *ngTemplateOutlet="addingItemTemplateRef; context: { addType: ItemType.FOLDER, id: null }"
+    ></ng-container>
+}
+
+<ng-template #itemsTemplateRef let-items>
+    @for(item of items; track item.id; let last = $last) {
+      <li>
+        <item
+        [item]="item"
+        (delete)="onItemDeleted($event)"
+        (add)="onItemAdded($event)"
+        />
+      @if(item.children && item.children.length > 0) {
+        <ul class="ml-6 item-container">
+            <ng-container *ngTemplateOutlet="itemsTemplateRef; context: { $implicit: item.children }"></ng-container>
+        </ul>
+      }
+      </li>
+      @if(item.type === ItemType.FOLDER && item.isAddingItem) {
+        <ng-container
+          *ngTemplateOutlet="addingItemTemplateRef; context: { addType: null, id: item.id }"
+        ></ng-container>
+      }
+    }
+</ng-template>
+
+<ng-template #addingItemTemplateRef let-addType="addType" let-id="id">
+  <app-input
+  [type]="addType"
+  [id]="id"
+  (closed)="onAddingItemClosed($event)"
+  (itemAdded)="onAddingItemAdded($event)"
+/>
+</ng-template>
+

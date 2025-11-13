@@ -1,0 +1,28 @@
+.add-item-container{
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  padding: .5rem;
+  border-radius: .25rem;
+  width: max-content;
+  gap: .25rem;
+  input{
+    border: dashed 1px #000;
+    outline: none;
+    padding: .25rem;
+    font-size: 1rem;
+    &:focus{
+       border: 2px solid orange;
+    }
+  }
+}
+
+.add-item-btn-container{
+  padding: .25rem;
+  width: max-content;
+  border-radius: .25rem;
+  border: 2px solid transparent;
+  &:hover{
+     border: 2px solid #000;
+  }
+}

@@ -1,0 +1,17 @@
+<div
+class="item"
+[class]="itemService.getName(item()!.type)"
+>
+  <div class="item-description">
+     <i class="fa-solid" [class]="'fa-'+ itemService.getIconName(item()!.type)"></i>
+    <span class="item-name">
+      {{item()!.name}}
+    </span>
+  </div>
+  <div class="item-btn-container">
+    @if(item()!.type === ItemType.FOLDER) {
+       <button class="bg-black btn-round" (click)="addItem(item()!.id)"><i class="fa-solid fa-plus"></i></button>
+    }
+    <button class="bg-black btn-round" (click)="deleteItem(item()!.id)"><i class="fa-solid fa-trash"></i></button>
+  </div>
+</div>

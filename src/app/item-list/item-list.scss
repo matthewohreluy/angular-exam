@@ -1,0 +1,31 @@
+ul.item-container{
+  list-style: none;
+   li{
+    position: relative;
+      &::before{
+      content: "";
+      position: absolute;
+      left: -0.5625rem;
+      width: .5rem;
+      height: 1.25rem;
+      border-left: 1px solid #000;
+      border-bottom: 1px solid black;
+    }
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -0.5625rem;
+      width: .5rem;
+      height: 100%;
+      border-left: 1px solid black;
+    }
+    &:last-child::after{
+      display: none;
+    }
+  }
+}
+
+ul.root-list > li:after, ul.root-list > li:before{
+  display: none;
+}
